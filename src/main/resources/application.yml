@@ -16,5 +16,10 @@ mybatis:
 #    spring.datasource.password=123
 mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
-
-
+  configuration:
+    aggressive-lazy-loading: true
+logging:
+  level:
+    com.example: debug
+  pattern:
+    dateformat:MM-dd HH:mm:ss:SSS
