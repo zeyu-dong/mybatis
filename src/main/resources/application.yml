@@ -17,7 +17,8 @@ mybatis:
 mybatis-plus:
   mapper-locations: classpath:mappers/*.xml
   configuration:
-    aggressive-lazy-loading: true
+    local-cache-scope: session
+
 logging:
   level:
     com.example: debug

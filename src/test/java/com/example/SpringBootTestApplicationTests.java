@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.mapper.CacheMapper;
 import com.example.mapper.MyUserMapper;
 import com.example.mapper.UserMapper;
 import com.example.mapper.UserMapper1;
@@ -46,10 +47,17 @@ class SpringBootTestApplicationTests {
 
         System.out.println(maozi);
     }
-    @Test
-    public void testCache() {
-        
 
+    @Autowired
+    private CacheMapper cacheMapper;
+    @Test
+    @Transactional
+    public void testCache() {
+        User userById = cacheMapper.findUserById(2);
+        System.out.println(userById);
+
+        User userById1 = cacheMapper.findUserById(2);
+        System.out.println(userById1);
     }
 
 }
