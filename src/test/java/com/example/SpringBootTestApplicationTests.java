@@ -25,11 +25,14 @@ class SpringBootTestApplicationTests {
     @Autowired
     private IUserService userService;
 
+
     @Autowired
     private UserMapper1 userMapper1;
 
     @Autowired
     private MyUserMapper myUserMapper;
+    @Autowired
+    private MyUserMapper myUserMapper1;
     @Test
     void contextLoads() {
         List<User> users = myUserMapper.selectAllWebsite();
@@ -50,6 +53,8 @@ class SpringBootTestApplicationTests {
 
     @Autowired
     private CacheMapper cacheMapper;
+    @Autowired
+    private CacheMapper cacheMapper1;
     @Test
     @Transactional
     public void testCache() {
@@ -58,6 +63,13 @@ class SpringBootTestApplicationTests {
 
         User userById1 = cacheMapper.findUserById(2);
         System.out.println(userById1);
+    }
+
+    @Test
+
+    public void testSecondCache() {
+        User userById = cacheMapper.findUserById(2);
+        User userById1 = cacheMapper1.findUserById(2);
     }
 
 }
